@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hw2</title>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <style>
+        div {
+            border: 2px solid red;
+            height: 20px;
+            width: 120px;
+            line-height: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <input type="button" onclick="launch()" value="Click!">
+    <script>
+        function showRandom(n, m) {
+            num = Math.ceil(Math.random() * Math.abs(m - n) + n);
+            return num;
+        }
+
+        function launch() {
+            var num = showRandom(1911, 2016);
+            console.log(num);
+            d3.select("body>div").text(num);
+        }
+    </script>
+    <hr>
+    
+    <input type="text" class="number">
+    <input type="button" onclick="square()" value="平方">
+    <script>
+        function square() {
+            var num = document.getElementsByClassName("number")[0].value;
+            var answer = num * num;
+            console.log(num);
+            console.log(answer);
+            d3.select(".number").property("value",answer);
+        }
+    </script>
+    <hr>
+    
+    <svg width="300" height="200" fill="OldLace" id="Music">
+        <!--
+        <circle cx="150" cy="120" r="15"></circle>
+        <rect x="160" y="45" width="5" height="78"></rect>
+-->
+    </svg>
+    <hr>
+    <svg width="500" height="500" id="Bar"> </svg>
+    <script>
+        d3.select("#Music").append("rect").attr({
+            width: "300"
+            , height: "200"
+            , fill: "OldLace"
+        })
+        d3.select("#Music").append("rect").attr({
+            x: "0"
+            , y: "45"
+            , width: "300"
+            , height: "2"
+            , fill: "black"
+        })
+        d3.select("#Music").append("rect").attr({
+            x: "0"
+            , y: "75"
+            , width: "300"
+            , height: "2"
+            , fill: "black"
+        })
+        d3.select("#Music").append("rect").attr({
+            x: "0"
+            , y: "105"
+            , width: "300"
+            , height: "2"
+            , fill: "black"
+        })
+        d3.select("#Music").append("rect").attr({
+            x: "0"
+            , y: "135"
+            , width: "300"
+            , height: "2"
+            , fill: "black"
+        })
+        d3.select("#Music").append("rect").attr({
+            x: "0"
+            , y: "165"
+            , width: "300"
+            , height: "2"
+            , fill: "black"
+        })
+        d3.select("#Music").append("circle").attr({
+            cx: "150"
+            , cy: "120"
+            , r: "15"
+            , fill: "black"
+        });
+        d3.select("#Music").append("rect").attr({
+            x: "160"
+            , y: "45"
+            , width: "5"
+            , height: "78"
+            , fill: "black"
+        })
+        d3.select("#Music").append("line").attr({
+            x1: "150"
+            , y1: "175"
+            , x2: "160"
+            , y2: "195"
+            , stroke: "black"
+            , strokeWidth: "2px"
+            , "stroke-width": 3
+        })
+        d3.select("#Music").append("line").attr({
+            x1: "150"
+            , y1: "175"
+            , x2: "140"
+            , y2: "195"
+            , stroke: "black"
+            , "stroke-width": 3
+        })
+        d3.select("#Music").append("line").attr({
+            x1: "145"
+            , y1: "185"
+            , x2: "155"
+            , y2: "185"
+            , stroke: "black"
+            , "stroke-width": 3
+        })
+        for (var i = 0; i < 20; i = i + 1) {
+            var rn = Math.round(Math.random() * 280) + 20
+            d3.select("#Bar").append("rect").attr({
+                x: 10
+                , y: 10 + 12 * i
+                , width: rn
+                , height: 10
+                , fill: "red"
+            });
+            d3.select("#Bar").append("text").attr({
+                x: rn + 15
+                , y: 20 + 12 * i
+                , "font-size": 12
+            }).text(rn)
+        };
+    </script>
+</body>
+
+</html>
